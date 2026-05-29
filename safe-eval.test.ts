@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { safeEvalMath } from './safe-eval.js'
+import { safeEvalMath } from './safe-eval.ts'
 
 describe('safeEvalMath', () => {
   describe('basic arithmetic', () => {

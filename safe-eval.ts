@@ -2,13 +2,13 @@
  * Safe arithmetic evaluator for calculator provider (no eval).
  * Supports + - * / ( ) and decimals.
  */
-export function safeEvalMath(input) {
+export function safeEvalMath(input: string): number {
   const expr = input.replace(/\s+/g, '')
   if (!expr || !/^[0-9+\-*/().]+$/.test(expr)) return NaN
 
   let i = 0
 
-  function parseExpression() {
+  function parseExpression(): number {
     let value = parseTerm()
     while (i < expr.length && (expr[i] === '+' || expr[i] === '-')) {
       const op = expr[i++]
@@ -18,7 +18,7 @@ export function safeEvalMath(input) {
     return value
   }
 
-  function parseTerm() {
+  function parseTerm(): number {
     let value = parseFactor()
     while (i < expr.length && (expr[i] === '*' || expr[i] === '/')) {
       const op = expr[i++]
@@ -29,7 +29,7 @@ export function safeEvalMath(input) {
     return value
   }
 
-  function parseFactor() {
+  function parseFactor(): number {
     if (expr[i] === '(') {
       i++
       const value = parseExpression()
@@ -45,7 +45,7 @@ export function safeEvalMath(input) {
       i++
       return parseFactor()
     }
-    let start = i
+    const start = i
     while (i < expr.length && /[0-9.]/.test(expr[i])) i++
     if (start === i) return NaN
     const num = Number(expr.slice(start, i))
