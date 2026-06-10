@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { createMockCore } from '@nuxy/extension-sdk'
-import { register } from './backend.ts'
+import { register } from '../backend.ts'
 
 describe('calculator backend', () => {
   it('registers as a provider with the correct name', () => {
