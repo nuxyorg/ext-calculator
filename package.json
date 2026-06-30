@@ -4,6 +4,6 @@
   "type": "module",
   "version": "1.0.0",
   "dependencies": {
-    "@nuxyorg/extension-sdk": "workspace:*"
+    "@nuxyorg/extension-sdk": "^1.0.1"
   }
 }
